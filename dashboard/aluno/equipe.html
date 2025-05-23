@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe - NeuroDev</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+        }
+        
+        .navbar-brand span {
+            color: #ffc107;
+        }
+        
+        .team-header {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-header h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: white;
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        .team-card {
+            margin: 25px 0;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-card img {
+            object-fit: cover;
+            height: 300px;
+            width: 100%;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+        
+        .team-card:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .team-card .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-card .card-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .team-card .card-text {
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .team-card .social-links {
+            margin-top: 15px;
+        }
+        
+        .team-card .social-links a {
+            color: var(--primary-color);
+            margin: 0 5px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .team-card .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .specialty-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px;
+        }
+        
+        .container {
+            flex: 1;
+            padding-bottom: 50px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        /* Efeito de onda no header */
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+        
+        .wave-shape .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        /* Modo escuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .team-card {
+            background-color: #1e1e1e;
+        }
+        
+        .dark-mode .team-card .card-title {
+            color: #ffffff;
+        }
+        
+        .dark-mode .team-card .card-text {
+            color: #a0a0a0;
+        }
+        
+        .dark-mode footer {
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Aprimorada -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <i class="fas fa-brain me-2"></i>Neuro<span>Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Início</a>
+                    </li>
+                   
+                   
+                </ul>
+                <div class="d-flex align-items-center">
+                   
+                    <i class="fas fa-moon text-white mode-toggle fs-5" onclick="toggleDarkMode()" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header com Efeito de Onda -->
+    <header class="team-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Nossa Equipe</h1>
+            <p class="lead">Profissionais qualificados dedicados ao desenvolvimento e bem-estar das crianças</p>
+        </div>
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card team-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Psicopedagoga">
+                    <div class="card-body">
+                        <h5 class="card-title">Maria Oliveira</h5>
+                        <p class="card-text"><strong>Cargo:</strong> Psicopedagoga</p>
+                        <p class="card-text">Especialista em desenvolvimento infantil e dificuldades de aprendizagem.</p>
+                        <div>
+                            <span class="specialty-badge">TDAH</span>
+                            <span class="specialty-badge">Dislexia</span>
+                            <span class="specialty-badge">Autismo</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card team-card">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Psicóloga">
+                    <div class="card-body">
+                        <h5 class="card-title">Joana Silva</h5>
+                        <p class="card-text"><strong>Cargo:</strong> Psicóloga</p>
+                        <p class="card-text">Especialista em terapia cognitivo-comportamental para crianças.</p>
+                        <div>
+                            <span class="specialty-badge">Ansiedade</span>
+                            <span class="specialty-badge">Depressão</span>
+                            <span class="specialty-badge">Autismo</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Terapeuta Ocupacional">
+                    <div class="card-body">
+                        <h5 class="card-title">Lucas Souza</h5>
+                        <p class="card-text"><strong>Cargo:</strong> Terapeuta Ocupacional</p>
+                        <p class="card-text">Especialista em integração sensorial e desenvolvimento motor.</p>
+                        <div>
+                            <span class="specialty-badge">TEA</span>
+                            <span class="specialty-badge">TDAH</span>
+                            <span class="specialty-badge">Coordenação Motora</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-0">&copy; 2025 NeuroDev. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para Modo Escuro -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        // Verificar preferência ao carregar a página
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            const icon = document.querySelector('.mode-toggle');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
+</body>
+</html>

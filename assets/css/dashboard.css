@@ -1,0 +1,63 @@
+/* Estilo global */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* Container do Dashboard */
+.dashboard-container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2a9d8f;
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    background-color: #21867a;
+}
+
+/* Conteúdo principal */
+.content {
+    padding: 30px;
+    width: 100%;
+    background-color: #fff;
+    flex: 1;
+}
+
+/* Título do dashboard */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.dashboard-options {
+    margin-top: 20px;
+}
+
+.dashboard-options p {
+    font-size: 18px;
+}

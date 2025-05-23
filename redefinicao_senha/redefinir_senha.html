@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solicite a redefinição de senha.">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="../src/styles.css"> <!-- Ajuste o caminho para o CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Esqueceu sua senha?</h2>
+        <p class="description">Digite seu e-mail para receber um link de redefinição de senha.</p>
+        
+        <form action="enviar-link.php" method="POST" class="form">
+            <label class="label-input" for="email">
+                <i class="far fa-envelope"></i>
+                <input id="email" type="email" name="email" placeholder="E-mail" required>
+            </label>
+            <button type="submit" class="btn btn-second">Enviar Link de Redefinição</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redefina sua senha.">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="../src/styles.css"> <!-- Ajuste o caminho para o CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Redefinir Senha</h2>
+        <form action="processa-nova-senha.php" method="POST" class="form">
+            <label class="label-input" for="nova-senha">
+                <i class="fas fa-lock"></i>
+                <input id="nova-senha" type="password" name="nova-senha" placeholder="Nova Senha" required>
+            </label>
+            <label class="label-input" for="confirmar-senha">
+                <i class="fas fa-lock"></i>
+                <input id="confirmar-senha" type="password" name="confirmar-senha" placeholder="Confirmar Senha" required>
+            </label>
+            <button type="submit" class="btn btn-second">Redefinir Senha</button>
+        </form>
+    </div>
+</body>
+</html>
